@@ -1,211 +1,197 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧧 รับทุนฟรี 100.- 🧧</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://static.line-scdn.net/liff/sdk/2.23.1/liff.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>โอกาสลับสำหรับคุณเท่านั้น</title>
 
-    <style>
-        :root {
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-main: #212529;
-            --accent-color: #d32f2f;
-            --gold-color: #ffc107;
-        }
+<!-- LIFF SDK -->
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #121212;
-                --card-bg: #1e1e1e;
-                --text-main: #e0e0e0;
-            }
-        }
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family:'Kanit',Arial,sans-serif;
+  background:radial-gradient(circle at top,#160000,#000);
+  overflow:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  background:conic-gradient(#ffd700,#ff3300,#ffd700);
+  animation:spin 14s linear infinite;
+  opacity:.25;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Kanit', sans-serif;
-        }
-
-        .container-box {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            max-width: 420px;
-            width: 90%;
-            text-align: center;
-            border-top: 6px solid var(--accent-color);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInMove 0.8s forwards;
-        }
-
-        @keyframes fadeInMove {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .banner-img {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 3px solid var(--gold-color);
-        }
-
-        /* ปุ่มเรืองแสง */
-        .btn-send {
-            background: linear-gradient(45deg, #d32f2f, #ff5252);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.25rem;
-            font-weight: bold;
-            border-radius: 50px;
-            width: 100%;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(211, 47, 47, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .btn-send:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 25px rgba(211, 47, 47, 0.7);
-        }
-
-        .btn-send::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(45deg);
-            animation: glow 3s infinite;
-        }
-
-        @keyframes glow {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .text-top { font-size: 1.4rem; font-weight: 800; color: var(--accent-color); margin-bottom: 1rem; }
-        .text-mid { font-size: 1.1rem; font-weight: 500; margin: 1rem 0; color: var(--gold-color); }
-        .text-bottom { font-size: 0.85rem; color: #888; margin-top: 1rem; }
-    </style>
+.container{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:18px;
+}
+img{
+  width:100%;
+  max-width:360px;
+  border-radius:18px;
+  box-shadow:0 0 34px rgba(255,190,0,.9);
+}
+h1{
+  margin:14px 0 6px;
+  color:#FFD700;
+  font-weight:900;
+  text-shadow:0 0 16px rgba(255,215,0,.9);
+}
+.sub{
+  color:#fff;
+  font-size:14px;
+}
+.urg{
+  color:#ff6666;
+  font-size:13px;
+  margin-top:4px;
+}
+button{
+  margin-top:20px;
+  padding:16px 44px;
+  font-size:18px;
+  font-weight:900;
+  color:#000;
+  background:linear-gradient(90deg,#FFD700,#C9A227);
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(255,215,0,1);
+}
+#status{
+  margin-top:12px;
+  color:#00ffcc;
+  font-weight:bold;
+  display:none;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-    <div class="container-box">
-        <div class="text-top">🔥 โปรแรง! รับทุนฟรี 100.- 🔥</div>
-        <img src="https://img2.pic.in.th/721c68d7-1705-4793-90fd-c622ecbe7b62.jpg" class="banner-img" alt="Promo">
-        <div class="text-mid">👇 ส่งต่อให้เพื่อน แล้วรับสิทธิ์ทันที 👇</div>
-        <button class="btn-send" onclick="handleSend()">
-            🚀 กดส่งต่อให้เพื่อน/กลุ่ม 🚀
-        </button>
-        <div class="text-bottom">*เงื่อนไขเป็นไปตามที่บริษัทกำหนด</div>
-    </div>
+  <img src="https://img2.pic.in.th/721c68d7-1705-4793-90fd-c622ecbe7b62.jpg" alt="promo">
 
-    <script>
-        const LIFF_ID = '2008689015-TcMhMDXp';
+  <!-- 🔥 ข้อความชุด Final -->
+  <h1>โอกาสลับสำหรับคุณเท่านั้น</h1>
+  <div class="sub">ระบบจำกัดจำนวน • พลาดแล้วหมดสิทธิ์</div>
+  <div class="urg">⚠️ เหลือเวลาไม่มาก</div>
 
-        async function initLiff() {
-            try {
-                await liff.init({ liffId: LIFF_ID });
-            } catch (error) {
-                console.error("Init failed", error);
+  <button onclick="shareFlex()">▶ เปิดสิทธิ์ตอนนี้</button>
+  <div id="status">✅ แชร์สำเร็จ กำลังพาไปต่อ…</div>
+
+</div>
+
+<script>
+const LIFF_ID = "2008689015-TcMhMDXp";
+const TARGET_URL = "https://lin.ee/vsXgbyp";
+
+async function initLIFF(){
+  await liff.init({ liffId: LIFF_ID });
+  if(!liff.isLoggedIn()) liff.login();
+}
+initLIFF();
+
+async function shareFlex(){
+
+  if(!liff.isApiAvailable("shareTargetPicker")){
+    alert("กรุณาเปิดจากแอป LINE");
+    return;
+  }
+
+  const flexMessage = {
+    type:"flex",
+    altText:"โอกาสลับสำหรับคุณเท่านั้น",
+    contents:{
+      type:"bubble",
+      size:"giga",
+      hero:{
+        type:"image",
+        url:"https://img2.pic.in.th/721c68d7-1705-4793-90fd-c622ecbe7b62.jpg",
+        size:"full",
+        aspectRatio:"1:1",
+        aspectMode:"cover"
+      },
+      body:{
+        type:"box",
+        layout:"vertical",
+        backgroundColor:"#0f0f0f",
+        paddingAll:"12px",
+        contents:[
+          {
+            type:"text",
+            text:"โอกาสลับสำหรับคุณเท่านั้น",
+            weight:"bold",
+            size:"lg",
+            align:"center",
+            color:"#FFD700"
+          },
+          {
+            type:"text",
+            text:"ระบบจำกัดจำนวน • พลาดแล้วหมดสิทธิ์",
+            size:"sm",
+            align:"center",
+            color:"#ffffff",
+            margin:"sm"
+          },
+          {
+            type:"text",
+            text:"⚠️ เหลือเวลาไม่มาก",
+            size:"xs",
+            align:"center",
+            color:"#ff6666",
+            margin:"sm"
+          }
+        ]
+      },
+      footer:{
+        type:"box",
+        layout:"vertical",
+        paddingAll:"14px",
+        contents:[
+          {
+            type:"button",
+            style:"primary",
+            color:"#FFD700",
+            action:{
+              type:"uri",
+              label:"▶ เปิดสิทธิ์ตอนนี้",
+              uri: TARGET_URL
             }
-        }
+          }
+        ]
+      }
+    }
+  };
 
-        async function handleSend() {
-            if (!liff.isApiAvailable('shareTargetPicker')) {
-                alert("กรุณาเปิดจากภายในแอป LINE");
-                return;
-            }
-
-            try {
-                await liff.shareTargetPicker([
-                    {
-                        type: "flex",
-                        altText: "🧧 คุณได้รับทุนฟรี 100.- กดรับด่วน!",
-                        contents: {
-                            type: "bubble",
-                            size: "giga", // ปรับขนาดเป็น Giga (ใหญ่พิเศษเต็มจอแชท)
-                            styles: {
-                                header: { backgroundColor: "#b71c1c" },
-                                body: { backgroundColor: "#1a1a1a" },
-                                footer: { backgroundColor: "#1a1a1a" }
-                            },
-                            header: {
-                                type: "box",
-                                layout: "vertical",
-                                contents: [
-                                    {
-                                        type: "text",
-                                        text: "🧧 โปรโมชั่นพิเศษ 🧧",
-                                        weight: "bold",
-                                        color: "#ffffff",
-                                        align: "center",
-                                        size: "xl"
-                                    }
-                                ]
-                            },
-                            hero: {
-                                type: "image",
-                                url: "https://img2.pic.in.th/721c68d7-1705-4793-90fd-c622ecbe7b62.jpg",
-                                size: "full",
-                                aspectRatio: "1:1",
-                                aspectMode: "cover"
-                            },
-                            body: {
-                                type: "box",
-                                layout: "vertical",
-                                spacing: "md",
-                                contents: [
-                                    {
-                                        type: "text",
-                                        text: "กดรับทุนฟรี 100.- ทันทีไม่ต้องรอ!",
-                                        color: "#ffc107",
-                                        align: "center",
-                                        weight: "bold",
-                                        size: "lg"
-                                    }
-                                ]
-                            },
-                            footer: {
-                                type: "box",
-                                layout: "vertical",
-                                contents: [
-                                    {
-                                        type: "button",
-                                        action: {
-                                            type: "uri",
-                                            label: "🧧 รับทุนฟรีที่นี่ 🧧",
-                                            uri: "https://lin.ee/vsXgbyp"
-                                        },
-                                        style: "primary",
-                                        color: "#d32f2f",
-                                        height: "md"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]);
-            } catch (error) {
-                console.error("Failed", error);
-            }
-        }
-
-        initLiff();
-    </script>
+  try{
+    const res = await liff.shareTargetPicker([flexMessage]);
+    if(res){
+      document.getElementById("status").style.display="block";
+      setTimeout(()=>{
+        liff.openWindow({
+          url: TARGET_URL,
+          external:true
+        });
+      },1200);
+    }
+  }catch(err){
+    console.error(err);
+  }
+}
+</script>
 </body>
 </html>
